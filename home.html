@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>This is home page</h1>
+    <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="home.html">Home</a></li>
+        <li class = "cart"><a href="cart.html">Cart<span class= "badge black-text ">0</span></a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class = "pos-cards">
+
+ <div class="row" id = "cards">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="a.webp">
+          
+        </div>
+        <div class="card-content">
+          <p>dell 3501</p>
+        </div>
+        <div class="card-action">
+          <a href="#" class="add-cart cart1">Add to Cart</a>
+                <br>
+                Rs 55000
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="row" id = "cards">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+        
+          <img src="b.webp">
+        
+        </div>
+        <div class="card-content">
+          <p>asus vivobook</p>
+        </div>
+        <div class="card-action">
+          <a href="#" class="add-cart cart2">Add to Cart</a>
+                <br>
+                Rs 45000
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="row" id = "cards">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="d.jpg">
+          
+        </div>
+        <div class="card-content">
+          <p>dell g5</p>
+        </div>
+        <div class="card-action">
+          <a href="#" class="add-cart cart3">Add to Cart</a>
+          <br>
+        Rs 35000
+        </div>
+        <div class="divider"></div>
+      </div>
+    </div>
+  </div>
+
+<div>
+        
+
+
+
+    <script>
+
+       /*  var carts = document.querySelector('.add-cart');
+            carts.addEventListener('click', function () {
+                console.log('added to cart')
+            }) */
+var carts = document.querySelectorAll('.add-cart')
+
+for(var i = 0;i < carts.length;i++){
+    carts[i].addEventListener('click',() =>{
+        cartNumbers();
+    })
+}
+
+function OnLoadCartNumbers(){
+    let productNumbers = localStorage.getItem('cartNumbers');
+    if(productNumbers){
+        document.querySelector('.cart span').textContent = productNumbers;
+    }
+}
+
+function cartNumbers(){
+    let productNumbers = localStorage.getItem('cartNumbers');
+
+    productNumbers = parseInt(productNumbers);
+    if(productNumbers){
+        localStorage.setItem('cartNumbers',productNumbers + 1)
+        document.querySelector('.cart span').textContent = productNumbers + 1;
+
+    }else{
+        localStorage.setItem('cartNumbers',1)
+        document.querySelector('.cart span').textContent = 1;
+    }
+}
+onLoadCartNumbers();
+    </script>
+</body>
+</html>

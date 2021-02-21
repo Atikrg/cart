@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#cards{
+    height: 100px;
+    width: 700px;
+}
+.pos-cards{
+    display: flex;
+}
